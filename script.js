@@ -13,9 +13,9 @@ let editTanggal = null;
 function tambahData() {
   const tanggal = document.getElementById("tanggal").value;
   const blok = document.getElementById("blok").value;
-  const restan = parseInt(document.getElementById("restan").value);
+  const restan = parseInt(document.getElementById("rak").value);
 
-  if (!tanggal || !blok || isNaN(restan)) {
+  if (!tanggal || !blok || isNaN(rak)) {
     alert("Mohon lengkapi semua kolom!");
     return;
   }
@@ -23,14 +23,14 @@ function tambahData() {
   const total = restan * 500;
 
   if (editIndex !== null && editTanggal !== null) {
-    data[editTanggal][editIndex] = { blok, restan, total };
+    data[editTanggal][editIndex] = { blok, rak, total };
     editIndex = null;
     editTanggal = null;
   } else {
     if (!data[tanggal]) {
       data[tanggal] = [];
     }
-    data[tanggal].push({ blok, restan, total });
+    data[tanggal].push({ blok, rak, total });
   }
 
   tampilkanPreview();
@@ -48,9 +48,9 @@ function tampilkanPreview() {
         <thead>
           <tr>
             <th>Blok</th>
-            <th>Restan</th>
+            <th>Rak</th>
             <th>Total</th>
-            <th>Aksi</th>
+            <th>Menu</th>
           </tr>
         </thead>
         <tbody>
@@ -64,7 +64,7 @@ function tampilkanPreview() {
       tableHTML += `
         <tr id="${rowId}" onclick="tampilkanAksi('${tanggal}', ${index})">
           <td>${row.blok}</td>
-          <td>${row.restan}</td>
+          <td>${row.rak}</td>
           <td>${row.total.toLocaleString()}</td>
           <td>
             <button class="action-btn edit-btn" id="edit-${rowId}" onclick="event.stopPropagation(); editData('${tanggal}', ${index})">Edit</button>
@@ -100,7 +100,7 @@ function editData(tanggal, index) {
   const item = data[tanggal][index];
   document.getElementById("tanggal").value = tanggal;
   document.getElementById("blok").value = item.blok;
-  document.getElementById("restan").value = item.restan;
+  document.getElementById("rak").value = item.rak;
   editIndex = index;
   editTanggal = tanggal;
 }
@@ -117,7 +117,7 @@ function hapusData(tanggal, index) {
 
 function bersihkanForm() {
   document.getElementById("blok").value = "";
-  document.getElementById("restan").value = "";
+  document.getElementById("rak").value = "";
   editIndex = null;
   editTanggal = null;
 }
