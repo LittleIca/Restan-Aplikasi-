@@ -13,14 +13,14 @@ let editTanggal = null;
 function tambahData() {
   const tanggal = document.getElementById("tanggal").value;
   const blok = document.getElementById("blok").value;
-  const restan = parseInt(document.getElementById("rak").value);
+  const rak = parseInt(document.getElementById("rak").value);
 
   if (!tanggal || !blok || isNaN(rak)) {
     alert("Mohon lengkapi semua kolom!");
     return;
   }
 
-  const total = restan * 500;
+  const total = rak * 500;
 
   if (editIndex !== null && editTanggal !== null) {
     data[editTanggal][editIndex] = { blok, rak, total };
