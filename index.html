@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Aplikasi Input Restan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Input Data Restan</h1>
+
+  <div class="form-container">
+    <label for="tanggal">Tanggal:</label>
+    <input type="date" id="tanggal">
+
+    <label for="blok">Blok:</label>
+    <select id="blok">
+      <option value="">Pilih Blok</option>
+    </select>
+
+    <label for="restan">Restan (buah):</label>
+    <input type="number" id="restan" placeholder="Masukkan angka restan">
+
+    <button onclick="tambahData()">Tambah Data</button>
+  </div>
+
+  <div class="preview">
+    <h2>Preview Data per Tanggal</h2>
+    <div id="previewTable"></div>
+
+    <div class="signature">By Petugas Supply Material</div>
+
+    
+  </div>
+<div class="print-buttons">
+      <button onclick="cetakPDF()">📄 Cetak ke PDF</button>
+      <button onclick="cetakGambar()">🖼️ Cetak ke Gambar</button>
+    </div>
+  <!-- Library Eksternal -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
